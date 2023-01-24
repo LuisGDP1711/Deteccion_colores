@@ -6,22 +6,12 @@ import numpy as np
 from tkinter import messagebox
 from app_area import Area_Saludable
 from Base_datos import *
-# from Base_datos import Mostrar_Sistemas, sistemas
-#----------VARIABLES-----------
-#detcolor = 0
-# n = 0    
-# lista = [0]
 
+#----------VARIABLES-----------
 contador_general = 0
 contador_update = 0
 contador_color = 0
 contador_color_Putr = 0
-
-# ret2, __ = cv2.VideoCapture(0, cv2.CAP_DSHOW).read()
-# while ret2 is False: 
-#     n = n+1
-#     ret2, __ = cv2.VideoCapture(n, cv2.CAP_DSHOW).read()
-#     lista.append(n)
 
 #---------FUNCIONES--------------
 
@@ -150,12 +140,6 @@ def colores():
         lblVideo2.after(10, colores)
         lblVideo2. place(x = 970, y = 30)
 
-    # AREA
-    # contornos, _ = cv2.findContours(mascara,  cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    # for c in contornos:
-    #     area_saludable = cv2.contourArea(c)
-    #area_saludable = Area_Saludable(ret, frame, color_oscuro, color_brilla, mascara )
-    
 # PUTREFACCION
 def Det_Putrefaccion():
     global Tmin_Putr, Tmax_Putr, Pmin_Putr, Pmax_Putr, Lmin_Putr, Lmax_Putr, contador_color_Putr
@@ -165,11 +149,9 @@ def Det_Putrefaccion():
         # Extraemos el sliders H
         Tmin_Putr = H_MIN_Putr.get()
         Tmax_Putr = H_MAX_Putr.get()
-        #print(Tmin, Tmax)
         # Extraemos el sliders S
         Pmin_Putr = S_MIN_Putr.get()
         Pmax_Putr = S_MAX_Putr.get()
-        #print(Pmin, Pmax)
         # Extraemos el sliders V
         Lmin_Putr = V_MIN_Putr.get()
         Lmax_Putr = V_MAX_Putr.get()
@@ -220,9 +202,6 @@ def Putrefaccion():
     detcolor_Putr = 1
     
 
-    #print(Lmin, Lmax)
-    # Kx = Kernel_X.get()
-    # Ky = Kernel_Y.get()
     if contador_general == 0:
         messagebox.showwarning("Error", "Haga click en iniciar")    
     # Deteccion de color
@@ -251,10 +230,6 @@ def Putrefaccion():
         lblVideo3.image = img3
         lblVideo3.after(10, Putrefaccion)
         lblVideo3. place(x = 970, y = 330)
-    # # AREA
-    # contornos2, _ = cv2.findContours(mascara_Putr,  cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    # for c in contornos2:
-    #     area_podrida = cv2.contourArea(c)
 
 # SUBIR DATOS
 def Subir_datos():
@@ -312,12 +287,6 @@ def iniciar():
     contador_general = 1
     # cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
     cap = cv2.VideoCapture("http://192.168.159.241:8080/video")
-
-
-    # if clicked.get() == str(0):
-    #     cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-    # else:
-    #     cap = cv2.VideoCapture(clicked.get(), cv2.CAP_DSHOW)
     visualizar()
 
 # Funcion finalizar
@@ -336,7 +305,6 @@ altura_pantalla = ventana.winfo_screenheight()-int(50)
 ancho_pantalla = ventana.winfo_screenwidth()
 ventana.geometry(f'{ancho_pantalla}x{altura_pantalla}')
 
-#ventana.attributes('-fullscreen', True)
 ventana.iconbitmap('./iconos/logo.ico')
 
 Fondo = PhotoImage(file = r'./iconos/Fondo.png')
@@ -380,17 +348,6 @@ Putrefaccion_boton.place(x = 82, y = 550)
 imagenBU = PhotoImage(file = r'./iconos/Update.png')
 Update = Button(ventana, text="Subir datos", image= imagenBU, height="40", width="200", command=Subir_datos)
 Update.place(x = 470, y = 550)
-
-# # ESCOGER CAMARA
-
-# text_camara = Label(ventana, text = "Eliga su cámara")
-
-# clicked = StringVar()
-# clicked.set(lista[0])
-
-# camaras = OptionMenu(ventana, clicked, *lista)
-# camaras.place(x = 560, y = 520)
-# text_camara.place(x = 470, y = 520)
 
 # ESCOGER SISTEMA
 text_sistema = Label(ventana, text = "Eliga el sistema")
