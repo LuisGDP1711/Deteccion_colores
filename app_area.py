@@ -10,7 +10,6 @@ def Area_Saludable(ret, image, verde_bajo, verde_alto, mascara):
 
         #---------------CONTORNO-------------
         contornos, _ = cv2.findContours(mascara,  cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        # cv2.drawContours(image, contornos, -1, (255,0,0), 4)
 
         for c in contornos:
             area_saludable2 = cv2.contourArea(c)   
