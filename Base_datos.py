@@ -90,12 +90,6 @@ class Sistema:
         addFunction = "INSERT INTO parametro_colores (VS_MIN, VS_MAX, VP_MIN, VP_MAX, ESTADO_PLANTA) VALUES (%s, %s, %s, %s, %s)"
         cur.execute( addFunction, (VS_MIN ,VS_MAX, VP_MIN ,VP_MAX, ESTADO_PLANTA))
         
-        # ID = self.contador + 1
-
-        # plant = Parametro_Sistema()
-        # plant.setParametros(ID, VS_MIN, VS_MAX, VP_MIN,VP_MAX,ESTADO_PLANTA)
-        # self.param_sistem[ID]=plant
-        
         connection.commit()
         cur.close()
     
@@ -119,24 +113,3 @@ class Sistema:
 
 plantas = Sistema()
 lista_sistemas = plantas.reportIds()
-# var1 = "(120,94,45)"
-# var2 = "(158,255,240)"
-# var3 = "(0,0,0)"
-# var4 = "(60,255,255)"
-# var5 = "Saludable"
-# aea = plantas.getParams(1)
-
-# print(aea[1])
-
-# aea2 = aea[1].replace('(', '')
-# aea3 = aea2.replace(')', '')
-
-# aea4 = list(aea3.split(sep = ','))
-
-# print(aea4[0])
-
-# print(aea[0])
-# plantas = Sistema()
-# # plantas.Subir_Parametros(var1,var2,var3,var4,var5)
-# plantas.loadAllParams()
-# plantas.reportIds()
