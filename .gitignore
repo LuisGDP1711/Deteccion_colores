@@ -1,0 +1,6 @@
+node_modules
+imagen
+Deteccion_color_imagen.py
+__pycache__
+LOCALHOST_MODELADODB.sql
+MODELADODB_LOCALHOST.xml
